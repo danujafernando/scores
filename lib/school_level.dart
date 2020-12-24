@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:my_app/constant.dart';
 import 'package:open_iconic_flutter/open_iconic_flutter.dart';
 
 import './match_summary.dart';
@@ -29,7 +30,7 @@ class SchoolLevelState extends State<SchoolLevel>
   Future<List<SchoolModel>> _future;
   List<SchoolModel> _schools = [];
   List<SchoolModel> _defaultSchoolList = [];
-  final String match_summary_url = "http://10.1.14.187:80/scores/school_matches.json";
+  final String match_summary_url = API_ENDPINT + "/school_matches.json";
 
   @override
   void initState() {
@@ -104,7 +105,7 @@ class SchoolLevelState extends State<SchoolLevel>
   }
 
   Future<List<SchoolModel>> _getSchools() async {
-    final String url = "http://10.1.14.187:80/scores/schools.json";
+    final String url = API_ENDPINT + "/schools.json";
     var data = await http.get(url);
 
     var jsonData = json.decode(data.body);
@@ -233,7 +234,7 @@ class SchoolLevelState extends State<SchoolLevel>
   }
 
   Future<List<Tournament>> _getTournaments() async {
-    final String url = "http://10.1.14.187:80/scores/school_tournaments.json";
+    final String url = API_ENDPINT + "/school_tournaments.json";
     var data = await http.get(url);
 
     var jsonData = json.decode(data.body);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
+import 'package:my_app/constant.dart';
 import 'dart:convert';
 
 import './match_summary.dart';
@@ -22,7 +23,7 @@ class Team extends StatefulWidget {
 class TeamState extends State<Team> with SingleTickerProviderStateMixin {
   Animation animation;
   AnimationController animationController;
-  final String match_summary_url = "http://10.1.14.187:80/scores/school_matches.json";
+  final String match_summary_url = API_ENDPINT + "/school_matches.json";
   @override
   void initState() {
     super.initState();
@@ -93,7 +94,7 @@ class TeamState extends State<Team> with SingleTickerProviderStateMixin {
   }
 
   Future<List<PlayerModel>> _getPlayers() async {
-    final String url = "http://10.1.14.187:80/scores/school_players.json";
+    final String url = API_ENDPINT + "/school_players.json";
     var data = await http.get(url);
 
     var jsonData = json.decode(data.body);

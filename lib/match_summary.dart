@@ -16,7 +16,7 @@ class MatchSmmary extends StatelessWidget {
   final Animation animation;
   @override
   Widget build(BuildContext context) {
-    return getMatchSummaryList(context);
+    return getMatchSummary(context);
   }
 
   Future<List<MatchSummaryModel>> _getMatchSummaries() async {
@@ -47,8 +47,8 @@ class MatchSmmary extends StatelessWidget {
     }
     return matchSummaries;
   }
-
-  Widget getMatchSummaryList(context) {
+  
+  Widget getMatchSummary(context) {
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -86,6 +86,9 @@ class MatchSmmary extends StatelessWidget {
     );
   }
 
+  Widget getMatchSummaryList(){
+    
+  }
   Widget setGridView(AsyncSnapshot snapshot, int crossAxisCount) {
     return GridView.builder(
       itemCount: snapshot.data.length,

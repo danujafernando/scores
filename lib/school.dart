@@ -8,6 +8,7 @@ import './match_summary.dart';
 import './model/school.dart';
 import './model/team.dart';
 import './team.dart';
+import './constant.dart';
 
 class School extends StatefulWidget {
   School({Key key, @required this.school}) : super(key: key);
@@ -21,7 +22,7 @@ class School extends StatefulWidget {
 class SchoolState extends State<School> with SingleTickerProviderStateMixin {
   Animation animation;
   AnimationController animationController;
-  final String match_summary_url = "http://10.1.14.187:80/scores/school_matches.json";
+  final String match_summary_url = API_ENDPINT + "/school_matches.json";
 
   @override
   void initState() {
@@ -100,7 +101,7 @@ class SchoolState extends State<School> with SingleTickerProviderStateMixin {
   }
 
   Future<List<TeamModel>> _getTeams() async {
-    final String url = "http://10.1.14.187:80/scores/school_teams.json";
+    final String url = API_ENDPINT + "/school_teams.json";
     var data = await http.get(url);
 
     var jsonData = json.decode(data.body);

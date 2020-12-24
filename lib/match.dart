@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
+import 'package:my_app/constant.dart';
 import 'dart:convert';
 
 import './model/match_summary.dart';
@@ -18,7 +19,7 @@ class MatchState extends State<Match> with SingleTickerProviderStateMixin {
 
   Animation animation;
   AnimationController animationController;
-  final String match_summary_url = "http://10.1.14.187:80/scores/school_matches.json";
+  final String match_summary_url = API_ENDPINT + "/school_matches.json";
 
   @override
   void initState() {
